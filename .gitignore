@@ -2,3 +2,7 @@
 *.2del
 Debug/
 ipch/
+_LearnCPP/
+*.sdf
+*.suo
+*.user

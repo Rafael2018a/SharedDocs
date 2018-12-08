@@ -7,38 +7,44 @@
 
 using namespace std;
 
-class Parent
+class ParentClass
 {
 public:
-	Parent();
+	ParentClass();
 	virtual string GetInstanceName() = 0;
 	virtual void virt1(){ return; };
 };
 
-class Child : Parent
+class ChildClass : ParentClass
 {
 public:
+	ChildClass()
+	{
+		puts("Child class");
+		return;
+	}
 	string GetInstanceName() override;
 	void virt1() override { return; };
+	int childOnlyField;
 };
 
-void EmitObjectName(Parent * p)
+void EmitObjectName(ParentClass * p)
 {
 	cout << p->GetInstanceName() << endl;
 }
 
-Parent::Parent()
+ParentClass::ParentClass()
 { 
 	EmitObjectName(this); 
 };
 
-string Child::GetInstanceName()
+string ChildClass::GetInstanceName()
 {
 	return string("");
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Child c123; // this will cause 'pure virtual called'
+	ChildClass c123; // this will cause 'pure virtual called'
 
 	return 0;
 }
