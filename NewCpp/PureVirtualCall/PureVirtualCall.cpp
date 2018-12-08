@@ -12,12 +12,14 @@ class Parent
 public:
 	Parent();
 	virtual string GetInstanceName() = 0;
+	virtual void virt1(){ return; };
 };
 
 class Child : Parent
 {
 public:
 	string GetInstanceName() override;
+	void virt1() override { return; };
 };
 
 void EmitObjectName(Parent * p)
@@ -26,7 +28,9 @@ void EmitObjectName(Parent * p)
 }
 
 Parent::Parent()
-{ EmitObjectName(this); };
+{ 
+	EmitObjectName(this); 
+};
 
 string Child::GetInstanceName()
 {
@@ -34,7 +38,7 @@ string Child::GetInstanceName()
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Child c; // this will cause 'pure virtual called'
+	Child c123; // this will cause 'pure virtual called'
 
 	return 0;
 }
