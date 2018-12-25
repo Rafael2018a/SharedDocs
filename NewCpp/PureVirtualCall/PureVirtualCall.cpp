@@ -42,8 +42,34 @@ string ChildClass::GetInstanceName()
 {
 	return string("");
 }
+
+class P
+{
+public:
+	P() { std::cout << "P" << endl; }
+};
+
+class C : P
+{
+public: 
+	C() { std::cout << "C" << endl; }
+};
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	set_terminate([]() 
+	{ 
+		std::cout << "set_terminate Unhandled exception\n"; 
+		std::abort();
+	});
+	set_unexpected([]() 
+	{ 
+		std::cout << "set_unexpected Unhandled exception\n";  
+	});
+
+	//C c1;
+
 	ChildClass c123; // this will cause 'pure virtual called'
 
 	return 0;

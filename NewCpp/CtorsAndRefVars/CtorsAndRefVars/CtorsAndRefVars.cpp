@@ -47,6 +47,11 @@ ResClass getLocalByVal()
 	return rc;
 }
 
+ResClass && getClassByMove()
+{
+	return ResClass("ByMove");
+}
+
 int main()
 {
 	//ResClass & rc1 = getClassByRef();
@@ -55,8 +60,8 @@ int main()
 	//ResClass rc3 = getClassByRef();
 	//ResClass rc4 = getClassByVal();
 
-	ResClass rc5 = getLocalByVal();
-
+	ResClass  & rc5 = getClassByMove();
+	cout << rc5._name;
 	//ResClass rc = "ano1";
 	//ResClass rc2(rc);
 	//rc2 = rc;
