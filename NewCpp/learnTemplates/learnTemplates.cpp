@@ -2,6 +2,7 @@
 //
 #include "stdafx.h"
 #include <type_traits>
+#include <algorithm>
 
 class C1 {};
 class C2 {};
@@ -23,9 +24,31 @@ bool IsEqual(T lhs, T rhs)
 	return true;
 }
 
+
+
+class Widget 
+{
+public:
+	void * pImpl;
+};
+// swap<> specialization
+namespace std
+{
+	template<>
+	void swap<Widget>(Widget& a, Widget& b)
+	{
+			std::swap(a.pImpl, b.pImpl); // to swap Widgets, swap their
+	} // pImpl pointers; this won’t	compile
+}
+
 int main()
 {
 	bool b = IsEqual(1.0, 0.1);
+
+	int x = 0, y = 1;
+
+
+	std::swap(x, y);
     return 0;
 }
 
