@@ -1,11 +1,18 @@
 #include "stdafx.h"
+#include <sstream>
 #include "ResClass.h"
 
 using namespace std;
 
 ResClass::~ResClass()
 {
-	cout << "ResClass virtual dtor. name: " << _name << " address: " << this << "\n";
+	cout << "ResClass virtual dtor. " << GetId() << "\n";
+		//_name << " address: " << this << "\n";
+}
+
+ResClass::ResClass()
+{
+	_name = "noname";
 }
 
 ResClass::ResClass(string name) : _name(name)//, ResParent(name)
@@ -42,5 +49,14 @@ ResClass& ResClass::operator=(ResClass&& other)
 		std::cout << "ResClass assign-move. name: " << _name << " address: " << this << "\n";
 	}
 	return *this;
+}
+
+string ResClass::GetId() const
+{
+	stringstream ss;
+	ss << "Instance name: " << _name << ", address: " << this << "\n";
+	return ss.str();
+
+
 }
 

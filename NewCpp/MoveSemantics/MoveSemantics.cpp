@@ -36,15 +36,25 @@ int main()
 
 	vector<ResClass> v;
 	v.reserve(10);
+	v.push_back(ResClass("element1"));
 
-	// block a
-	//{
-	//	ResClass rc("element 1");
-	//	v.push_back(rc);
-	//}
-	// block b
+	ResClass arr[1];
+	//ResClass array[1];
+	//array[0] = ResClass("I1");
+
+	for (auto a : v)
 	{
-		v.push_back(ResClass("element 2"));
+		std::cout << a.GetId() << "\n";
 	}
+
+	for (auto a = begin(v); a != end(v); a++)
+	{
+		std::cout << a->GetId() << "\n";
+	}
+
+	for (auto a : arr) {}
+
+	for (auto a = begin(arr); a != end(arr); a++) {}
+
 }
 
