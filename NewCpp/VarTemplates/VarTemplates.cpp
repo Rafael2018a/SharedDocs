@@ -20,10 +20,26 @@ void expand(Args&& ... args)
 	pass(ShowArg(args)...);
 }
 
+// ======================================
+//template <typename FirstArg>
+//void RecursiveShowArgs(FirstArg fa) {};
+void RecursiveShowArgs() {};
+
+template <typename FirstArg, typename ... Args>
+void RecursiveShowArgs(FirstArg first, Args ... args)
+{
+	std::cout << first << "\n";
+	RecursiveShowArgs(args...);
+}
+
 int main()
 {
 
 	expand("hi", "hello");
+
+	cout << "==========================\n";
+
+	RecursiveShowArgs("hi", "hello");
 
     return 0;
 }
