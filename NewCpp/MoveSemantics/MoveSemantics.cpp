@@ -31,30 +31,40 @@ void f2()
 	int && z = 1;
 	z = 2;
 }
+
+ResClass CreateResource()
+{
+	ResClass rc("rc2");
+	return rc;
+}
 int main()
 {
 
-	vector<ResClass> v;
-	v.reserve(10);
-	v.push_back(ResClass("element1"));
+	ResClass rc = CreateResource();
+	std::cout << rc.GetName() << "\n";
 
-	ResClass arr[1];
-	//ResClass array[1];
-	//array[0] = ResClass("I1");
 
-	for (auto a : v)
-	{
-		std::cout << a.GetId() << "\n";
-	}
+	//vector<ResClass> v;
+	//v.reserve(10);
+	//v.push_back(ResClass("element1"));
 
-	for (auto a = begin(v); a != end(v); a++)
-	{
-		std::cout << a->GetId() << "\n";
-	}
+	//ResClass arr[1];
+	////ResClass array[1];
+	////array[0] = ResClass("I1");
 
-	for (auto a : arr) {}
+	//for (auto a : v)
+	//{
+	//	std::cout << a.GetId() << "\n";
+	//}
 
-	for (auto a = begin(arr); a != end(arr); a++) {}
+	//for (auto a = begin(v); a != end(v); a++)
+	//{
+	//	std::cout << a->GetId() << "\n";
+	//}
+
+	//for (auto a : arr) {}
+
+	//for (auto a = begin(arr); a != end(arr); a++) {}
 
 }
 

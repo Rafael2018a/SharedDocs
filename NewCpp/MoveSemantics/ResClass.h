@@ -13,6 +13,7 @@ public:
 	ResClass& operator=(const ResClass& other);
 	ResClass& operator=(ResClass&& other);
 	std::string GetId() const;
+	std::string GetName() const;
 
 	//ResClass();
 	virtual ~ResClass();

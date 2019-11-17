@@ -37,7 +37,7 @@ int main()
 
 	expand("hi", "hello");
 
-	cout << "==========================\n";
+	std::cout << "==========================\n";
 
 	RecursiveShowArgs("hi", "hello");
 
